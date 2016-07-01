@@ -8,13 +8,15 @@
 
 import UIKit
 
+public typealias EmptyDataSetView = UIView
+
 /// The protocol that acts as the data source of the empty datasets.
 ///
 /// The data source must adopt the DZNEmptyDataSetSource protocol. The data source is not retained. All data source methods are optional.
 @objc public protocol DZNEmptyDataSetSource : NSObjectProtocol {
     
     ///
-    optional func sectionsToIgnore(scrollView: UIScrollView) -> NSIndexSet?
+    optional func sectionsToIgnore(scrollView: EmptyDataSetView) -> NSIndexSet?
     
     /**
      Asks the data source for the title of the dataset.
@@ -23,7 +25,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass informing the data source.
      - Returns: An attributed string for the dataset title, combining font, text color, text pararaph style, etc.
      */
-    optional func titleForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString?
+    optional func titleForEmptyDataSet(scrollView: EmptyDataSetView) -> NSAttributedString?
     
     /**
      Asks the data source for the description of the dataset.
@@ -32,7 +34,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass informing the data source.
      - Returns: An attributed string for the dataset description text, combining font, text color, text pararaph style, etc.
      */
-    optional func descriptionForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString?
+    optional func descriptionForEmptyDataSet(scrollView: EmptyDataSetView) -> NSAttributedString?
     
     /**
      Asks the data source for the image of the dataset.
@@ -40,7 +42,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass informing the data source.
      - Returns: An image for the dataset.
      */
-    optional func imageForEmptyDataSet(scrollView: UIScrollView) -> UIImage?
+    optional func imageForEmptyDataSet(scrollView: EmptyDataSetView) -> UIImage?
     
     /**
      Asks the data source for a tint color of the image dataset. Default is nil.
@@ -48,7 +50,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the data source.
      - Returns: A color to tint the image of the dataset.
      */
-    optional func imageTintColorForEmptyDataSet(scrollView: UIScrollView) -> UIImage?
+    optional func imageTintColorForEmptyDataSet(scrollView: EmptyDataSetView) -> UIImage?
     
     /**
      *  Asks the data source for the image animation of the dataset.
@@ -57,7 +59,7 @@ import UIKit
      *
      *  - Returns: image animation
      */
-    optional func imageAnimationForEmptyDataSet(scrollView: UIScrollView) -> CAAnimation
+    optional func imageAnimationForEmptyDataSet(scrollView: EmptyDataSetView) -> CAAnimation
     
     /**
      Asks the data source for the title to be used for the specified button state.
@@ -67,7 +69,7 @@ import UIKit
      - Parameter state: The state that uses the specified title. The possible values are described in UIControlState.
      - Returns: An attributed string for the dataset button title, combining font, text color, text pararaph style, etc.
      */
-    optional func buttonTitleForEmptyDataSet(scrollView: UIScrollView, state: UIControlState) -> NSAttributedString?
+    optional func buttonTitleForEmptyDataSet(scrollView: EmptyDataSetView, state: UIControlState) -> NSAttributedString?
     
     /**
      Asks the data source for the image to be used for the specified button state.
@@ -77,7 +79,7 @@ import UIKit
      - Parameter state: The state that uses the specified title. The possible values are described in UIControlState.
      - Returns: An image for the dataset button imageview.
      */
-    optional func buttonImageForEmptyDataSet(scrollView: UIScrollView, state: UIControlState) -> UIImage?
+    optional func buttonImageForEmptyDataSet(scrollView: EmptyDataSetView, state: UIControlState) -> UIImage?
     
     /**
      Asks the data source for a background image to be used for the specified button state.
@@ -87,7 +89,7 @@ import UIKit
      - Parameter state: The state that uses the specified image. The values are described in UIControlState.
      - Returns: An attributed string for the dataset button title, combining font, text color, text pararaph style, etc.
      */
-    optional func buttonBackgroundImageForEmptyDataSet(scrollView: UIScrollView, state: UIControlState) -> UIImage?
+    optional func buttonBackgroundImageForEmptyDataSet(scrollView: EmptyDataSetView, state: UIControlState) -> UIImage?
     
     /**
      Asks the data source for the background color of the dataset. Default is clear color.
@@ -95,7 +97,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the data source.
      - Returns: A color to be applied to the dataset background view.
      */
-    optional func backgroundColorForEmptyDataSet(scrollView: UIScrollView) -> UIColor?
+    optional func backgroundColorForEmptyDataSet(scrollView: EmptyDataSetView) -> UIColor?
     
     /**
      Asks the data source for a custom view to be displayed instead of the default views such as labels, imageview and button. Default is nil.
@@ -105,7 +107,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: The custom view.
      */
-    optional func customViewForEmptyDataSet(scrollView: UIScrollView) -> UIImage?
+    optional func customViewForEmptyDataSet(scrollView: EmptyDataSetView) -> UIImage?
     
     /**
      Asks the data source for a offset for vertical and horizontal alignment of the content. Default is CGPointZero.
@@ -113,7 +115,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: The offset for vertical and horizontal alignment.
      */
-    optional func verticalOffsetForEmptyDataSet(scrollView: UIScrollView) -> CGFloat
+    optional func verticalOffsetForEmptyDataSet(scrollView: EmptyDataSetView) -> CGFloat
     
     /**
      Asks the data source for a vertical space between elements. Default is 11 pts.
@@ -121,7 +123,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: The space height between elements.
      */
-    optional func spaceHeightForEmptyDataSet(scrollView: UIScrollView) -> CGFloat
+    optional func spaceHeightForEmptyDataSet(scrollView: EmptyDataSetView) -> CGFloat
 }
 
 // TODO: Add documentation once completed
@@ -139,7 +141,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: true if the empty dataset should show.
      */
-    optional func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool
+    optional func emptyDataSetShouldDisplay(scrollView: EmptyDataSetView) -> Bool
     
     /**
      Asks the delegate for touch permission. Default is true.
@@ -147,7 +149,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: true if the empty dataset receives touch gestures.
      */
-    optional func emptyDataSetShouldAllowTouch(scrollView: UIScrollView) -> Bool
+    optional func emptyDataSetShouldAllowTouch(scrollView: EmptyDataSetView) -> Bool
     
     /**
      Asks the delegate for scroll permission. Default is false.
@@ -155,7 +157,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: true if the empty dataset is allowed to be scrollable.
      */
-    optional func emptyDataSetShouldAllowScroll(scrollView: UIScrollView) -> Bool
+    optional func emptyDataSetShouldAllowScroll(scrollView: EmptyDataSetView) -> Bool
     
     /**
      Asks the delegate to know if the empty dataset should fade in when displayed. Default is true.
@@ -163,7 +165,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: true if the empty dataset should fade in.
      */
-    optional func emptyDataSetShouldFadeIn(scrollView: UIScrollView) -> Bool
+    optional func emptyDataSetShouldFadeIn(scrollView: EmptyDataSetView) -> Bool
     
     /**
      Asks the delegate for image view animation permission. Default is false.
@@ -172,7 +174,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass object informing the delegate.
      - Returns: true if the empty dataset is allowed to animate
      */
-    optional func emptyDataSetShouldAnimateImageView(scrollView: UIScrollView) -> Bool
+    optional func emptyDataSetShouldAnimateImageView(scrollView: EmptyDataSetView) -> Bool
     
     /**
      Tells the delegate that the empty dataset view was tapped.
@@ -181,7 +183,7 @@ import UIKit
      - Parameter scrollView: A scrollView subclass informing the delegate.
      - Parameter view: the view tapped by the user
      */
-    optional func emptyDataSet(scrollView: UIScrollView, didTapView: UIView)
+    optional func emptyDataSet(scrollView: EmptyDataSetView, didTapView: UIView)
     
     /**
      Tells the delegate that the action button was tapped.
@@ -189,35 +191,35 @@ import UIKit
      - Parameter scrollView: A scrollView subclass informing the delegate.
      - Parameter button: the button tapped by the user
      */
-    optional func emptyDataSet(scrollView: UIScrollView, didTapButton: UIButton)
+    optional func emptyDataSet(scrollView: EmptyDataSetView, didTapButton: UIButton)
     
     /**
      Tells the delegate that the empty data set will appear.
      
      - Parameter scrollView: A scrollView subclass informing the delegate.
      */
-    optional func emptyDataSetWillAppear(scrollView: UIScrollView)
+    optional func emptyDataSetWillAppear(scrollView: EmptyDataSetView)
     
     /**
      Tells the delegate that the empty data set did appear.
      
      - Parameter scrollView: A scrollView subclass informing the delegate.
      */
-    optional func emptyDataSetDidAppear(scrollView: UIScrollView)
+    optional func emptyDataSetDidAppear(scrollView: EmptyDataSetView)
     
     /**
      Tells the delegate that the empty data set will disappear.
      
      - Parameter scrollView: A scrollView subclass informing the delegate.
      */
-    optional func emptyDataSetWillDisappear(scrollView: UIScrollView)
+    optional func emptyDataSetWillDisappear(scrollView: EmptyDataSetView)
     
     /**
      Tells the delegate that the empty data set did disappear.
      
      - Parameter scrollView: A scrollView subclass informing the delegate.
      */
-    optional func emptyDataSetDidDisappear(scrollView: UIScrollView)
+    optional func emptyDataSetDidDisappear(scrollView: EmptyDataSetView)
 }
 
 // MARK: - EmptyDataSet protocol
@@ -225,14 +227,14 @@ import UIKit
 
 /// protocol EmptyDataSet
 /// Instances of conforming UIView subclasses can show empty datasets whenever the view has no content to display.
-protocol EmptyDataSet {
+public protocol EmptyDataSet {
     func doSwizzle() -> Bool
     func isEmpty() -> Bool
 }
 
 // MARK: - UIScrollView extension
 
-extension UIScrollView {
+extension EmptyDataSetView {
     
     // MARK: - Public Properties
     
@@ -368,13 +370,13 @@ extension UIScrollView {
         view.hidden = false
         view.clipsToBounds = true
         view.fadeInOnDisplay = self.shouldFadeIn
-        view.verticalOffset = self.verticalOffset
+//        view.verticalOffset = self.verticalOffset
 
         // Adds subview
         self.addSubview(view)
         
         // Configure the empty dataset view
-        self.scrollEnabled = self.shouldScroll
+//        self.scrollEnabled = self.shouldScroll
         self.userInteractionEnabled = self.shouldTouch
         self.backgroundColor = self.backgroundColor()
         
@@ -478,7 +480,7 @@ extension UIScrollView {
 //        self.emptyDataSetView?.removeFromSuperview()
 //        self.emptyDataSetView = nil
         
-        self.scrollEnabled = true
+//        self.scrollEnabled = true
         
         didDisappear()
     }
@@ -521,7 +523,7 @@ extension UIScrollView {
 // MARK: -
 extension UITableView: EmptyDataSet {
 
-    func doSwizzle() -> Bool {
+    public func doSwizzle() -> Bool {
         
         var didSwizzle = false
 
@@ -537,7 +539,7 @@ extension UITableView: EmptyDataSet {
         return didSwizzle
     }
     
-    func isEmpty() -> Bool {
+    public func isEmpty() -> Bool {
         var items = 0
         let sections = dataSource?.numberOfSectionsInTableView?(self) ?? 1
         
@@ -571,7 +573,7 @@ extension UITableView: EmptyDataSet {
 
 extension UICollectionView: EmptyDataSet {
 
-    func doSwizzle() -> Bool {
+    public func doSwizzle() -> Bool {
 
         var didSwizzle = false
 
@@ -587,7 +589,7 @@ extension UICollectionView: EmptyDataSet {
         return didSwizzle
     }
     
-    func isEmpty() -> Bool {
+    public func isEmpty() -> Bool {
         var items = 0
         let sections = dataSource?.numberOfSectionsInCollectionView?(self) ?? 1
         
@@ -689,7 +691,7 @@ private class DZNEmptyDataSetView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var verticalOffset: CGFloat?
+//    var verticalOffset: CGFloat?
     var verticalSpace: CGFloat = 0
     
     var fadeInOnDisplay = false
@@ -767,9 +769,10 @@ private class DZNEmptyDataSetView: UIView, UIGestureRecognizerDelegate {
         self.addConstraintsWithVisualFormat("|[contentView]|", metrics: nil, views: ["contentView": contentView])
 
         // When a custom offset is available, we adjust the vertical constraints' constants
-        if let offset = self.verticalOffset where offset != 0 {
-            centerY.constant = offset
-        }
+//        if let offset = self.verticalOffset where offset != 0 {
+//            centerY.constant = offset
+//        }
+        centerY.constant = self.verticalOffset
         
         // Assign the image view's horizontal constraints
         if self.canShowImage, let imageView = self.imageView {
