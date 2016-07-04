@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: "deleteAll")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addItem")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: #selector(deleteAll))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addItem))
         
         self.view.addSubview(self.tableView)
         
@@ -73,36 +73,36 @@ class ViewController: UIViewController {
 // MARK: - DZNEmptyDataSetSource
 extension ViewController: DZNEmptyDataSetSource {
 
-    func titleForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString? {
+    func titleForEmptyDataSet(scrollView: EmptyDataSetView) -> NSAttributedString? {
         
         let attributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(27), NSForegroundColorAttributeName: UIColor.lightGrayColor()]
         
         return NSAttributedString.init(string: "No items found", attributes: attributes)
     }
     
-    func descriptionForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString? {
+    func descriptionForEmptyDataSet(scrollView: EmptyDataSetView) -> NSAttributedString? {
         
         let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(20), NSForegroundColorAttributeName: UIColor.lightGrayColor()]
         
         return NSAttributedString.init(string: "Tap on the Add button to insert new items to this list.", attributes: attributes)
     }
     
-    func imageForEmptyDataSet(scrollView: UIScrollView) -> UIImage? {
+    func imageForEmptyDataSet(scrollView: EmptyDataSetView) -> UIImage? {
         return UIImage(named: "placeholder_instagram")
     }
     
-    func buttonTitleForEmptyDataSet(scrollView: UIScrollView, state: UIControlState) -> NSAttributedString? {
+    func buttonTitleForEmptyDataSet(scrollView: EmptyDataSetView, state: UIControlState) -> NSAttributedString? {
         
         let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(18), NSForegroundColorAttributeName: UIColor.redColor()]
         
         return NSAttributedString.init(string: "Tap here to Add", attributes: attributes)
     }
     
-    func backgroundColorForEmptyDataSet(scrollView: UIScrollView) -> UIColor? {
+    func backgroundColorForEmptyDataSet(scrollView: EmptyDataSetView) -> UIColor? {
         return UIColor.whiteColor()
     }
     
-    func verticalOffsetForEmptyDataSet(scrollView: UIScrollView) -> CGFloat {
+    func verticalOffsetForEmptyDataSet(scrollView: EmptyDataSetView) -> CGFloat {
         return 0
     }
 }
@@ -110,39 +110,39 @@ extension ViewController: DZNEmptyDataSetSource {
 // MARK: - DZNEmptyDataSetDelegate
 extension ViewController: DZNEmptyDataSetDelegate {
   
-    func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool {
+    func emptyDataSetShouldDisplay(scrollView: EmptyDataSetView) -> Bool {
         return true
     }
     
-    func emptyDataSetShouldFadeIn(scrollView: UIScrollView) -> Bool {
+    func emptyDataSetShouldFadeIn(scrollView: EmptyDataSetView) -> Bool {
         return true
     }
     
-    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView) -> Bool {
+    func emptyDataSetShouldAllowScroll(scrollView: EmptyDataSetView) -> Bool {
         return true
     }
     
-    func emptyDataSetShouldAllowTouch(scrollView: UIScrollView) -> Bool {
+    func emptyDataSetShouldAllowTouch(scrollView: EmptyDataSetView) -> Bool {
         return true
     }
     
-    func emptyDataSet(scrollView: UIScrollView, didTapView: UIView) {
+    func emptyDataSet(scrollView: EmptyDataSetView, didTapView: UIView) {
         print("didTapView: \(didTapView)")
     }
     
-    func emptyDataSetWillAppear(scrollView: UIScrollView) {
+    func emptyDataSetWillAppear(scrollView: EmptyDataSetView) {
         print("emptyDataSetWillAppear")
     }
     
-    func emptyDataSetDidAppear(scrollView: UIScrollView) {
+    func emptyDataSetDidAppear(scrollView: EmptyDataSetView) {
         print("emptyDataSetDidAppear")
     }
     
-    func emptyDataSetWillDisappear(scrollView: UIScrollView) {
+    func emptyDataSetWillDisappear(scrollView: EmptyDataSetView) {
         print("emptyDataSetWillDisappear")
     }
     
-    func emptyDataSetDidDisappear(scrollView: UIScrollView) {
+    func emptyDataSetDidDisappear(scrollView: EmptyDataSetView) {
         print("emptyDataSetDidDisappear")
     }
 }

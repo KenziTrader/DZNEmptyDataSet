@@ -54,7 +54,7 @@ class TableViewEmptyDataSetTests: XCTestCase {
             return cell
         }
         
-        func titleForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString? {
+        func titleForEmptyDataSet(scrollView: EmptyDataSetView) -> NSAttributedString? {
             let attributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(27), NSForegroundColorAttributeName: UIColor.lightGrayColor()]
             
             return NSAttributedString.init(string: "No items found", attributes: attributes)
@@ -96,7 +96,7 @@ class TableViewEmptyDataSetTests: XCTestCase {
             return cell
         }
         
-        func titleForEmptyDataSet(scrollView: UIScrollView) -> NSAttributedString? {
+        func titleForEmptyDataSet(scrollView: EmptyDataSetView) -> NSAttributedString? {
             let attributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(27), NSForegroundColorAttributeName: UIColor.lightGrayColor()]
             
             return NSAttributedString.init(string: "No items found", attributes: attributes)
