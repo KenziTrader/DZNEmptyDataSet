@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author        = { "dzenbot" => "iromero@dzen.cl" }
   s.platform      = :ios, '8.0'
   s.source        = { :git => "https://github.com/dzenbot/DZNEmptyDataSet.git", :tag => "v#{s.version}" }
-  s.source_files  = 'Classes', 'Source/Swift/*.{swift}'
+  s.source_files  = 'Classes', 'Source/Swift/DZNEmptyDataSet.swift'
   s.requires_arc  = true
   s.framework     = "UIKit"
 end
