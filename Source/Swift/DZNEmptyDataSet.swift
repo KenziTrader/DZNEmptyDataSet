@@ -311,7 +311,7 @@ extension EmptyDataSetView {
             if view == nil {
                 view = DZNEmptyDataSetView(frame: self.bounds)
                 view?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                view?.backgroundColor = .clear()
+                view?.backgroundColor = .clear
                 view?.isHidden = true
                 
                 let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(didTapView(_:)))
@@ -434,7 +434,7 @@ extension EmptyDataSetView {
     }
     
     fileprivate func backgroundColor() -> UIColor {
-        return emptyDataSetSource?.backgroundColorForEmptyDataSet?(self) ?? .clear()
+        return emptyDataSetSource?.backgroundColorForEmptyDataSet?(self) ?? .clear
     }
     
     fileprivate var canDisplay: Bool {
@@ -648,7 +648,7 @@ private class DZNEmptyDataSetView: UIView, UIGestureRecognizerDelegate {
     var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear()
+        view.backgroundColor = .clear
         view.isUserInteractionEnabled = true
         view.alpha = 0
         return view
@@ -657,7 +657,7 @@ private class DZNEmptyDataSetView: UIView, UIGestureRecognizerDelegate {
     lazy var titleLabel: UILabel? = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .clear()
+        label.backgroundColor = .clear
         label.font = UIFont.systemFont(ofSize: 27)
         label.textColor = UIColor(white: 0.6, alpha: 1)
         label.textAlignment = .center
@@ -670,7 +670,7 @@ private class DZNEmptyDataSetView: UIView, UIGestureRecognizerDelegate {
     lazy var detailLabel: UILabel? = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .clear()
+        label.backgroundColor = .clear
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = UIColor(white: 0.6, alpha: 1)
         label.textAlignment = .center
@@ -683,7 +683,7 @@ private class DZNEmptyDataSetView: UIView, UIGestureRecognizerDelegate {
     lazy var imageView: UIImageView? = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear()
+        view.backgroundColor = .clear
         view.contentMode = .scaleAspectFit
         view.isUserInteractionEnabled = false
         view.accessibilityLabel = "empty set background image"
@@ -693,7 +693,7 @@ private class DZNEmptyDataSetView: UIView, UIGestureRecognizerDelegate {
     lazy var button: UIButton? = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .clear()
+        button.backgroundColor = .clear
         button.contentHorizontalAlignment = .center
         button.contentVerticalAlignment = .center
         button.accessibilityLabel = "empty set button"
